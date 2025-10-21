@@ -12,8 +12,6 @@ const authRoutes = require("./routes/authRoutes");
 const otpRoutes = require("./routes/otpRouts");
 const passwordRoutes = require("./routes/passwordRoutes");
 
-const cors = require("cors");
-
 app.use(
   cors({
     origin: "*", // for public testing;
