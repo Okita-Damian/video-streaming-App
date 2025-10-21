@@ -12,8 +12,17 @@ const authRoutes = require("./routes/authRoutes");
 const otpRoutes = require("./routes/otpRouts");
 const passwordRoutes = require("./routes/passwordRoutes");
 
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "*", // for public testing;
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
-app.use(cors());
 app.use(cookieParser());
 
 app.use("/videos", (req, res, next) => {
