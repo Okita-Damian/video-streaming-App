@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your OTP Code</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        padding: 20px;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .otp {
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 6px;
+        color: #007bff;
+      }
+      .footer {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Hello {{name}},</h2>
+      <p>Your OTP code is:</p>
+      <p class="otp">{{otp}}</p>
+      <p>This code will expire in <strong>10 minutes</strong>.</p>
+      <p>If you didn’t request this, please ignore this email.</p>
+      <div class="footer">
+        <p>Thanks,<br />The Video Stream App Team</p>
+      </div>
+    </div>
+  </body>
+</html>
