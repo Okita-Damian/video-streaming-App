@@ -28,13 +28,13 @@ router.put(
 );
 
 // Users: browse and watch
-router.get("/", asyncHandler(videoController.getAllVideos));
-
-router.get("/:id", asyncHandler(videoController.getVideoById));
+router.get("/trending", videoController.getTrendingVideo);
 
 router.get("/search", asyncHandler(videoController.searchVideos));
 
-router.get("/trending", videoController.getTrendingVideo);
+router.get("/", asyncHandler(videoController.getAllVideos));
+
+router.get("/:id", asyncHandler(videoController.getVideoById));
 
 // stream only if user is logged in
 router.get("/stream/:id", protect, asyncHandler(videoController.streamVideo));

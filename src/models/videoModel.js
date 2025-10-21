@@ -1,4 +1,4 @@
-mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const videoSchema = new mongoose.Schema(
   {
@@ -6,6 +6,7 @@ const videoSchema = new mongoose.Schema(
       type: String,
       required: [true, "Video must have a title"],
       trim: true,
+      unique: true,
     },
     description: {
       type: String,
@@ -35,18 +36,13 @@ const videoSchema = new mongoose.Schema(
       default: 0,
       min: 0,
     },
-    likes: {
-      type: Number,
-      default: 0,
-      min: 0,
-    },
     publicId: {
       type: String,
       required: true,
     },
-    views: {
-      type: Number,
-      default: 0,
+    viewedBy: {
+      type: [mongoose.Schema.Types.Mixed],
+      default: [],
     },
   },
   {

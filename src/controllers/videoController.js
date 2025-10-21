@@ -75,7 +75,13 @@ exports.streamVideo = asyncHandler(async (req, res, next) => {
   const video = await Video.findById(req.params.id);
   if (!video) return next(new AppError("Video not found", 404));
 
-  await Video.findByIdAndUpdate(video._id, { $inc: { views: 1 } }).exec();
+  const userId = req.user && req.user._id ? req.user._id.toString() : req.ip;
+
+  if (!video.viewedBy.includes(userId)) {
+    video.views += 1;
+    video.viewedBy.push(userId);
+    await video.save();
+  }
 
   const videoUrl = video.url.replace("/upload/", "/upload/f_auto,q_auto/");
   const range = req.headers.range;
