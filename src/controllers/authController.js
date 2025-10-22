@@ -43,7 +43,7 @@ exports.register = asyncHandler(async (req, res, next) => {
     subject: "Verify Your Email ",
     templatePath: "../templates/otpEmail.html",
     replacements: {
-      name: newUser.fullname || "User",
+      name: newUser.fullname || "user",
       otp: otp,
       year: new Date().getFullYear(),
     },

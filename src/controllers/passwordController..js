@@ -31,7 +31,7 @@ exports.requestPasswordReset = asyncHandler(async (req, res, next) => {
     subject: "Password Reset Request - Video Stream App",
     templatePath: "../templates/otpEmail.html",
     replacements: {
-      name: user.fullname || "User",
+      name: user.fullname || "user",
       otp,
       year: new Date().getFullYear(),
     },
@@ -80,7 +80,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
     subject: "Password Reset Successful",
     templatePath: "../templates/passwordResetSuccess.html",
     replacements: {
-      name: user.fullname || "User",
+      name: user.fullname || "user",
       year: new Date().getFullYear(),
     },
   });

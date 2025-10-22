@@ -83,7 +83,7 @@ exports.resendOtp = asyncHandler(async (req, res, next) => {
     subject: "New OTP - Video Stream App",
     templatePath: "../templates/otpEmail.html",
     replacements: {
-      name: user.fullname || "User",
+      name: user.fullname || "user",
       otp,
       year: new Date().getFullYear(),
     },
